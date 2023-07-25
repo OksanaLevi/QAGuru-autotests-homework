@@ -10,6 +10,7 @@ import org.openqa.selenium.remote.DesiredCapabilities;
 import java.io.File;
 
 import static com.codeborne.selenide.Condition.appear;
+import static com.codeborne.selenide.Configuration.*;
 import static com.codeborne.selenide.Selectors.byTagAndText;
 import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.$;
@@ -22,14 +23,14 @@ public class RegistrationForm {
         options.setBinary("/Applications/Google Chrome.app/Contents/MacOS/Google Chrome");
         DesiredCapabilities capabilities = new DesiredCapabilities();
         capabilities.setCapability(ChromeOptions.CAPABILITY, options);
-        Configuration.browserCapabilities = capabilities;
+        browserCapabilities = capabilities;
     }
 
     @BeforeAll
     static void beforeAll() {
-        Configuration.pageLoadStrategy = "eager";
-        Configuration.baseUrl = "https://demoqa.com";
-//        Configuration.browserSize = "2880x1800";
+        pageLoadStrategy = "eager";
+        baseUrl = "https://demoqa.com";
+        holdBrowserOpen = true;
     }
 
     @Test
@@ -50,12 +51,11 @@ public class RegistrationForm {
         $(".react-datepicker__year-select").$(byText("2010")).click();
         $(".react-datepicker__month-select").click();
         $(".react-datepicker__month-select").$(byText("July")).click();
-        $(".react-datepicker__day");
+        $(".react-datepicker__day").$("aria-disabled=Choose Thursday, July 15th, 2010");
         $("#subjectsInput").setValue("En");
         $("#subjectsWrapper").$(byText("English")).click();
         $("#hobbiesWrapper").$(byText("Reading")).click();
-//      $("#uploadPicture").uploadFromClasspath("1.jpeg");
- //В таком случае картинка будет подтягиваться по имени файла из папки resources. Конечно, картинку туда нужно положить и запушить на гитхаб :)
+      $("#uploadPicture").uploadFromClasspath("1.jpeg");
         $("#currentAddress").setValue("Current address");
         $("#state").click();
         $("#stateCity-wrapper").$(byText("NCR")).click();
@@ -70,9 +70,10 @@ public class RegistrationForm {
         $(byTagAndText("Student Email", "studentt@ya.ru"));
         $(byTagAndText("Gender", "Male"));
         $(byTagAndText("Mobile", "8911111111"));
+        $(byTagAndText("Date of Birth", "15 July,2010"));
         $(byTagAndText("Subjects", "English"));
         $(byTagAndText("Hobbies", "Reading"));
-        $(byTagAndText("Picture", ""));
+        $(byTagAndText("Picture", "1.jpeg"));
         $(byTagAndText("Address", "Current address"));
         $(byTagAndText("State and City", "NCR Delhi"));
 
