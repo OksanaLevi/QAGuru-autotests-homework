@@ -16,7 +16,7 @@ import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.executeJavaScript;
 
-public class RegistrationForm {
+public class RegistrationFormTests {
 
     static {
         ChromeOptions options = new ChromeOptions();
