@@ -43,22 +43,24 @@ public class RegistrationForm {
         $("#firstName").setValue("Student");
         $("#lastName").setValue("Testovi");
         $("#userEmail").setValue("studentt@ya.ru");
-        $(byText("Male")).click();
+        $("#genterWrapper").$(byText("Male")).click();
         $("#userNumber").setValue("8911111111");
         $("#dateOfBirthInput").click();
-        $(".react-datepicker__day").click();
+        $(".react-datepicker__year-select").click();
+        $(".react-datepicker__year-select").$(byText("2010")).click();
+        $(".react-datepicker__month-select").click();
+        $(".react-datepicker__month-select").$(byText("July")).click();
+        $(".react-datepicker__day");
         $("#subjectsInput").setValue("En");
-        $(byText("English")).click();
-        $(byText("Reading")).click();
-        File file = new File("/Users/20152853/Downloads/1.jpeg");
-        $(".form-control-file").uploadFile(file);
+        $("#subjectsWrapper").$(byText("English")).click();
+        $("#hobbiesWrapper").$(byText("Reading")).click();
+//      $("#uploadPicture").uploadFromClasspath("1.jpeg");
+ //В таком случае картинка будет подтягиваться по имени файла из папки resources. Конечно, картинку туда нужно положить и запушить на гитхаб :)
         $("#currentAddress").setValue("Current address");
-//        $("option:contains('NCR'')");
-        $("#react-select-3-input").setValue("N");
-        $(byText("NCR")).click();
-//        $("option:contains('Delhi')");
-        $("#react-select-4-input").setValue("Del");
-        $(byText("Delhi")).click();
+        $("#state").click();
+        $("#stateCity-wrapper").$(byText("NCR")).click();
+        $("#city").click();
+        $("#stateCity-wrapper").$(byText("Delhi")).click();
         $("#submit").click();
         $("#currentAddress").setValue("Current address");
 
