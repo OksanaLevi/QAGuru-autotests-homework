@@ -10,6 +10,7 @@ import org.openqa.selenium.remote.DesiredCapabilities;
 import java.io.File;
 
 import static com.codeborne.selenide.Condition.appear;
+import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Configuration.*;
 import static com.codeborne.selenide.Selectors.byTagAndText;
 import static com.codeborne.selenide.Selectors.byText;
@@ -66,16 +67,16 @@ public class RegistrationFormTests {
 
         //Проверка результата
         $(".modal-content").should(appear);
-        $(byTagAndText("Student Name", "Student Testovi"));
-        $(byTagAndText("Student Email", "studentt@ya.ru"));
-        $(byTagAndText("Gender", "Male"));
-        $(byTagAndText("Mobile", "8911111111"));
-        $(byTagAndText("Date of Birth", "15 July,2010"));
-        $(byTagAndText("Subjects", "English"));
-        $(byTagAndText("Hobbies", "Reading"));
-        $(byTagAndText("Picture", "1.jpeg"));
-        $(byTagAndText("Address", "Current address"));
-        $(byTagAndText("State and City", "NCR Delhi"));
+        $(".table-responsive").$(byText("Student Name")).parent().shouldHave(text("Student Testovi"));
+        $(".table-responsive").$(byText("Student Email")).parent().shouldHave(text("studentt@ya.ru"));
+        $(".table-responsive").$(byText("Gender")).parent().shouldHave(text("Male"));
+        $(".table-responsive").$(byText("Mobile")).parent().shouldHave(text("8911111111"));
+        $(".table-responsive").$(byText("Date of Birth")).parent().shouldHave(text("15 July,2010"));
+        $(".table-responsive").$(byText("Subjects")).parent().shouldHave(text("English"));
+        $(".table-responsive").$(byText("Hobbies")).parent().shouldHave(text("Reading"));
+        $(".table-responsive").$(byText("Picture")).parent().shouldHave(text("1.jpeg"));
+        $(".table-responsive").$(byText("Address")).parent().shouldHave(text("Current address"));
+        $(".table-responsive").$(byText("State and City")).parent().shouldHave(text("NCR Delhi"));
 
     }
 }
