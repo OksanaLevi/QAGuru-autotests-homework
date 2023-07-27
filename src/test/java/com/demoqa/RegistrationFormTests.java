@@ -30,7 +30,7 @@ public class RegistrationFormTests {
     static void beforeAll() {
         pageLoadStrategy = "eager";
         baseUrl = "https://demoqa.com";
-        holdBrowserOpen = true;
+//        holdBrowserOpen = true;
     }
 
     @Test
@@ -51,7 +51,7 @@ public class RegistrationFormTests {
         $(".react-datepicker__year-select").$(byText("2010")).click();
         $(".react-datepicker__month-select").click();
         $(".react-datepicker__month-select").$(byText("July")).click();
-        $(".react-datepicker__day").$("aria-disabled=Choose Thursday, July 15th, 2010");
+        $(".react-datepicker__day--015:not(.react-datepicker__day--outside-month)").click();
         $("#subjectsInput").setValue("En");
         $("#subjectsWrapper").$(byText("English")).click();
         $("#hobbiesWrapper").$(byText("Reading")).click();
