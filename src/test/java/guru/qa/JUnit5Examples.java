@@ -10,7 +10,7 @@ public class JUnit5Examples {
         //Configuration.browser = "chrome";
     }
 
-    @BeforeEach
+    @BeforeEach 
     void beforeEach() {
         // open("https://google.com");
         System.out.println("  beforeEach");
