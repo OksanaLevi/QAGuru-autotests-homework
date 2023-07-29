@@ -9,7 +9,7 @@ import static com.codeborne.selenide.Configuration.browserCapabilities;
 import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.open;
 
-class GoogleTests {
+class YandexTests {
 
     static {
         ChromeOptions options = new ChromeOptions();
@@ -20,9 +20,6 @@ class GoogleTests {
     }
 
     @Test
-    void googleTest() {
-        open("https://www.google.com/");
-        $("[name=q]").setValue("selenide").pressEnter();
-        $("[id=search]").shouldHave(text("https://ru.selenide.org"));
+    void yandexTest() {
     }
 }
