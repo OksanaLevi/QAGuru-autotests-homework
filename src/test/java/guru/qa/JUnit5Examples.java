@@ -10,10 +10,10 @@ public class JUnit5Examples {
         //Configuration.browser = "chrome";
     }
 
-    @BeforeEach 
+    @BeforeEach
     void beforeEach() {
         // open("https://google.com");
-        System.out.println("  beforeEach");
+        System.out.println(" beforeEach");
     }
 
     @AfterAll
@@ -24,24 +24,24 @@ public class JUnit5Examples {
     @AfterEach
     void afterEach() {
         // open("https://google.com");
-        System.out.println("  afterEach");
+        System.out.println(" afterEach");
     }
 
     @Test
     void firstTest() {
-        System.out.println("      firstTest");
+        System.out.println("   firstTest");
         Assertions.assertTrue(3 > 2);
     }
 
     @Test
     void secondTest() {
-        System.out.println("      secondTest");
+        System.out.println("   secondTest");
         Assertions.assertTrue(3 > 2);
     }
 
     @Test
     void thirdTest() {
-        System.out.println("      thirdTest");
+        System.out.println("   thirdTest");
         Assertions.assertTrue(3 > 2);
     }
 }

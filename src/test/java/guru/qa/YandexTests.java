@@ -20,6 +20,6 @@ class YandexTests {
     }
 
     @Test
-    void yandexTest() {
+    void yandexTest() {   
     }
 }
