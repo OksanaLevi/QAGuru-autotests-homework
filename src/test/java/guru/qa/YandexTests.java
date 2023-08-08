@@ -1,5 +1,6 @@
 package guru.qa;
 
+import com.codeborne.selenide.Selenide;
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.remote.DesiredCapabilities;
@@ -21,5 +22,6 @@ class YandexTests {
 
     @Test
     void yandexTest() {
+        Selenide.open("https://ya.ru");
     }
 }
