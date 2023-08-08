@@ -22,6 +22,6 @@ class YandexTests {
 
     @Test
     void yandexTest() {
-        Selenide.open("https://yandex.ru");
+        Selenide.open("https://ya.ru");
     }
 }
