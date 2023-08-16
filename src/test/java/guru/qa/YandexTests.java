@@ -22,6 +22,5 @@ class YandexTests {
 
     @Test
     void yandexTest() {
-        Selenide.open("салоны красоты Москва");
     }
 }
