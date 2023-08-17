@@ -36,7 +36,7 @@ public class SoftAssertions {
                         "\n" +
                         "$(\"#first\").should(visible).click();\n" +
                         "$(\"#second\").should(visible).click();\n" +
-                        "}\n"
+                        "}\n" +
                 "}"));
 //        sleep(5000);
     }
