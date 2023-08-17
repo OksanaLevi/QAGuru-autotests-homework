@@ -28,15 +28,15 @@ public class SoftAssertions {
         $(".Layout-sidebar").shouldHave(text("SoftAssertions")).$(byText("SoftAssertions")).click();
         $(".markdown-body").shouldHave(text("3. Using JUnit5 extend test class:"));
         $("#wiki-body").shouldHave(text("@ExtendWith({SoftAssertsExtension.class})\n" +
-                "class Tests {\n" +
-                "@Test\n" +
-                "void test() {\n" +
-                "Configuration.assertionMode = SOFT;\n" +
-                "open(\"page.html\");\n" +
-                "\n" +
-                "$(\"#first\").should(visible).click();\n" +
-                "$(\"#second\").should(visible).click();\n" +
-                "}\n" +
+                        "class Tests {\n" +
+                        "@Test\n" +
+                        "void test() {\n" +
+                        "Configuration.assertionMode = SOFT;\n" +
+                        "open(\"page.html\");\n" +
+                        "\n" +
+                        "$(\"#first\").should(visible).click();\n" +
+                        "$(\"#second\").should(visible).click();\n" +
+                        "}\n"
                 "}"));
 //        sleep(5000);
     }
