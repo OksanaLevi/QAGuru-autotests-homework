@@ -7,8 +7,6 @@ import org.junit.jupiter.api.Test;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.remote.DesiredCapabilities;
 
-import java.io.File;
-
 import static com.codeborne.selenide.Condition.appear;
 import static com.codeborne.selenide.Selectors.byTagAndText;
 import static com.codeborne.selenide.Selectors.byText;
@@ -55,7 +53,7 @@ class RegistrationForm {
         $("#subjectsWrapper").$(byText("English")).click();
         $("#hobbiesWrapper").$(byText("Reading")).click();
 //      $("#uploadPicture").uploadFromClasspath("1.jpeg");
- //В таком случае картинка будет подтягиваться по имени файла из папки resources. Конечно, картинку туда нужно положить и запушить на гитхаб :)
+        //В таком случае картинка будет подтягиваться по имени файла из папки resources. Конечно, картинку туда нужно положить и запушить на гитхаб :)
         $("#currentAddress").setValue("Current address");
         $("#state").click();
         $("#stateCity-wrapper").$(byText("NCR")).click();
