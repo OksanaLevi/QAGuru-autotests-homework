@@ -34,8 +34,7 @@ class RegistrationWithPageObjectsTests extends TestBase {
                 .setUserNumber("8911111111")
                 .setBirthDate("29", "July", "2010");
 
-        $("#subjectsInput").setValue("En");
-        $("#subjectsWrapper").$(byText("English")).click();
+        $("#subjectsInput").setValue("English").pressEnter();
         $("#hobbiesWrapper").$(byText("Reading")).click();
         $("#uploadPicture").uploadFromClasspath("1.jpeg");
         //В таком случае картинка будет подтягиваться по имени файла из папки resources. Конечно, картинку туда нужно положить и запушить на гитхаб :)
@@ -45,7 +44,6 @@ class RegistrationWithPageObjectsTests extends TestBase {
         $("#city").click();
         $("#stateCity-wrapper").$(byText("Delhi")).click();
         $("#submit").click();
-        $("#currentAddress").setValue("Current address");
 
         //Проверка результата
         $(".modal-dialog").should(appear);
