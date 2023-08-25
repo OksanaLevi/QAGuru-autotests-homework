@@ -1,7 +1,7 @@
 package com.demoqa.tests;
 
 import com.codeborne.selenide.Configuration;
-import com.demoqa.pages.RegistrationFormPage;
+import com.demoqa.pages.RegistrationPage;
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.remote.DesiredCapabilities;
@@ -21,7 +21,7 @@ class RegistrationWithPageObjectsTests extends TestBase {
         Configuration.browserCapabilities = capabilities;
     }
 
-    RegistrationFormPage registrationPage = new RegistrationFormPage();
+    RegistrationPage registrationPage = new RegistrationPage();
 
     @Test
     void successfulFromTests() {
@@ -31,13 +31,9 @@ class RegistrationWithPageObjectsTests extends TestBase {
                 .setLastName("Petrov")
                 .setUserEmail("studentt@ya.ru")
                 .setGender("Male")
-                .setUserNumber("8911111111");
-        $("#dateOfBirthInput").click();
-        $(".react-datepicker__year-select").click();
-        $(".react-datepicker__year-select").$(byText("2010")).click();
-        $(".react-datepicker__month-select").click();
-        $(".react-datepicker__month-select").$(byText("July")).click();
-        $(".react-datepicker__day");
+                .setUserNumber("8911111111")
+                .setBirthDate("29", "July", "2010");
+
         $("#subjectsInput").setValue("En");
         $("#subjectsWrapper").$(byText("English")).click();
         $("#hobbiesWrapper").$(byText("Reading")).click();
