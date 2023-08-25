@@ -53,7 +53,7 @@ public class RegistrationPage {
     }
 
     public RegistrationPage setUserNumber(String value) {
-        userNumberInput.$(byText(value)).click();
+        userNumberInput.setValue(value);
 
         return this;
     }
@@ -66,7 +66,7 @@ public class RegistrationPage {
     }
 
     public RegistrationPage checkResult(String value) {
-        $("#example-modal-sizes-title-lf").shouldHave(text("value"));
+        $(".table-responsive").shouldHave(text(value));
 
         return this;
     }

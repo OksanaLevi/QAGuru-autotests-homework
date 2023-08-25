@@ -37,7 +37,7 @@ class RegistrationWithPageObjectsTests extends TestBase {
         $("#subjectsInput").setValue("En");
         $("#subjectsWrapper").$(byText("English")).click();
         $("#hobbiesWrapper").$(byText("Reading")).click();
-//      $("#uploadPicture").uploadFromClasspath("1.jpeg");
+        $("#uploadPicture").uploadFromClasspath("1.jpeg");
         //В таком случае картинка будет подтягиваться по имени файла из папки resources. Конечно, картинку туда нужно положить и запушить на гитхаб :)
         $("#currentAddress").setValue("Current address");
         $("#state").click();
@@ -48,12 +48,12 @@ class RegistrationWithPageObjectsTests extends TestBase {
         $("#currentAddress").setValue("Current address");
 
         //Проверка результата
-        $(".modal-content").should(appear);
-        $("#example-modal-sizes-title-lf").shouldHave(text("Ivan Petrov"), text("studentt@ya.ru"), text("Male"), text("8911111111"), text("English"));
-        registrationPage.checkResult("Ivan Petrov")
+        $(".modal-dialog").should(appear);
+        registrationPage.checkResult("Ivan")
+                .checkResult("Petrov")
                 .checkResult("studentt@ya.ru")
                 .checkResult("Male")
                 .checkResult("8911111111")
-                .checkResult("English ");
+                .checkResult("English");
     }
 }
