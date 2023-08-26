@@ -6,11 +6,6 @@ import org.junit.jupiter.api.Test;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.remote.DesiredCapabilities;
 
-import static com.codeborne.selenide.Condition.appear;
-import static com.codeborne.selenide.Condition.text;
-import static com.codeborne.selenide.Selectors.byText;
-import static com.codeborne.selenide.Selenide.$;
-
 class RegistrationWithPageObjectsTests extends TestBase {
 
     static {
@@ -25,33 +20,27 @@ class RegistrationWithPageObjectsTests extends TestBase {
 
     @Test
     void successfulFromTests() {
+        String firstName = "Ivan";
+        String lastName = "Petrov";
+        String userEmail = "studentt@ya.ru";
+        String userNumber = "8911111111";
 
         registrationPage.openPage()
-                .setFirstName("Ivan")
-                .setLastName("Petrov")
-                .setUserEmail("studentt@ya.ru")
+                .setFirstName(firstName)
+                .setLastName(lastName)
+                .setUserEmail(userEmail)
                 .setGender("Male")
-                .setUserNumber("8911111111")
-                .setBirthDate("29", "July", "2010");
+                .setUserNumber(userNumber)
+                .setBirthDate("29", "July", "2010")
+                .setSubject("English")
+                .setHobbies("Reading")
+                .setPicture("1.jpeg")
+                .setAddress("Current address")
+                .setState("NCR")
+                .setCity("Delhi")
+                .submitForm()
 
-        $("#subjectsInput").setValue("English").pressEnter();
-        $("#hobbiesWrapper").$(byText("Reading")).click();
-        $("#uploadPicture").uploadFromClasspath("1.jpeg");
-        //В таком случае картинка будет подтягиваться по имени файла из папки resources. Конечно, картинку туда нужно положить и запушить на гитхаб :)
-        $("#currentAddress").setValue("Current address");
-        $("#state").click();
-        $("#stateCity-wrapper").$(byText("NCR")).click();
-        $("#city").click();
-        $("#stateCity-wrapper").$(byText("Delhi")).click();
-        $("#submit").click();
-
-        //Проверка результата
-        $(".modal-dialog").should(appear);
-        registrationPage.checkResult("Ivan")
-                .checkResult("Petrov")
-                .checkResult("studentt@ya.ru")
-                .checkResult("Male")
-                .checkResult("8911111111")
-                .checkResult("English");
+                .resultsTableOpened()
+                .checkResult(firstName, lastName, userEmail, userNumber);
     }
 }
