@@ -6,7 +6,7 @@ import org.junit.jupiter.api.Test;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.remote.DesiredCapabilities;
 
-public class TextBoxTests {
+public class TextBoxTests extends TestBase {
 
     static {
         ChromeOptions options = new ChromeOptions();
