@@ -20,10 +20,10 @@ class RegistrationWithPageObjectsTests extends TestBase {
 
     @Test
     void successfulFromTests() {
-        String firstName = "Ivan";
-        String lastName = "Petrov";
-        String userEmail = "studentt@ya.ru";
-        String userNumber = "8911111111";
+        String firstName = "Ivan",
+                lastName = "Petrov",
+                userEmail = "studentt@ya.ru",
+                userNumber = "8911111111";
 
         registrationPage.openPage()
                 .setFirstName(firstName)
@@ -34,7 +34,7 @@ class RegistrationWithPageObjectsTests extends TestBase {
                 .setBirthDate("29", "July", "2010")
                 .setSubject("English")
                 .setHobbies("Reading")
-                .setPicture("1.jpeg")
+                .setPicture("img/1.jpeg")
                 .setAddress("Current address")
                 .setState("NCR")
                 .setCity("Delhi")
