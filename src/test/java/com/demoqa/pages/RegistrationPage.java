@@ -132,7 +132,7 @@ public class RegistrationPage {
     }
 
     public RegistrationPage checkResult(String firstName, String lastName, String userEmail, String userNumber) {
-        table.verificationResults(firstName, firstName, userEmail, userNumber);
+        table.verificationResults(firstName, lastName, userEmail, userNumber);
 
         return this;
     }
