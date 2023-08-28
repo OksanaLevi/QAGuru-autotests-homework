@@ -6,7 +6,9 @@ import org.junit.jupiter.api.Test;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.remote.DesiredCapabilities;
 
-class RegistrationWithPageObjectsTests extends TestBase {
+import static com.demoqa.utils.RandomUtilWithFaker.*;
+
+class RegistrationWithPageObjectsAndFakerTests extends TestBase {
 
     static {
         ChromeOptions options = new ChromeOptions();
@@ -18,26 +20,23 @@ class RegistrationWithPageObjectsTests extends TestBase {
 
     RegistrationPage registrationPage = new RegistrationPage();
 
+
     @Test
     void successfulFromTests() {
-        String firstName = "Ivan",
-                lastName = "Petrov",
-                userEmail = "studentt@ya.ru",
-                userNumber = "8911111111";
 
         registrationPage.openPage()
                 .setFirstName(firstName)
                 .setLastName(lastName)
                 .setUserEmail(userEmail)
-                .setGender("Male")
+                .setGender(userGender)
                 .setUserNumber(userNumber)
-                .setBirthDate("29", "July", "2010")
-                .setSubject("English")
-                .setHobbies("Reading")
+                .setBirthDate(userBirthDay, userBirthMonth, userBirthYear)
+                .setSubject(subject)
+                .setHobbies(hobby)
                 .setPicture("img/1.jpeg")
-                .setAddress("Current address")
-                .setState("NCR")
-                .setCity("Delhi")
+                .setAddress(userAddress)
+                .setState(userState)
+                .setCity(userCity)
                 .submitForm()
 
                 .resultsTableOpened()
