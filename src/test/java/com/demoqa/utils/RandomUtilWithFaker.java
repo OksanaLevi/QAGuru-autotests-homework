@@ -19,8 +19,6 @@ public class RandomUtilWithFaker {
         return sb.toString();
     }
 
-    Faker faker = new Faker(new Locale("ru"));
-
     public static
     String
             firstName = randomFirstName(),
