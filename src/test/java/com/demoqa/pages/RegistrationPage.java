@@ -13,7 +13,6 @@ import static com.codeborne.selenide.Selenide.executeJavaScript;
 
 public class RegistrationPage {
     CalendarComponent calendar = new CalendarComponent();
-    RandomUtilWithFaker picture = new RandomUtilWithFaker();
 
     SelenideElement
             firstNameInput = $("#firstName"),
