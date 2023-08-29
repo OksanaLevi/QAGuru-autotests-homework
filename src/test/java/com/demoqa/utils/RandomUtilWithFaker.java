@@ -2,27 +2,16 @@ package com.demoqa.utils;
 
 import com.github.javafaker.Faker;
 
-import java.security.SecureRandom;
 import java.util.Locale;
-import java.util.concurrent.ThreadLocalRandom;
 
 
 public class RandomUtilWithFaker {
 
-    public static String getRandomString(int len) {
-        String AB = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
-        SecureRandom rnd = new SecureRandom();
-        StringBuilder sb = new StringBuilder(len);
-        for (int i = 0; i < len; i++)
-            sb.append(AB.charAt(rnd.nextInt(AB.length())));
-
-        return sb.toString();
-    }
-    
     Faker faker = new Faker(new Locale("ru"));
 
-    public static
-    String
+    public String
+            pictureFolder = "img/",
+            pictureName = "1.jpeg",
             firstName = randomFirstName(),
             lastName = randomLastName(),
             userEmail = randomUserEmail(),
@@ -37,68 +26,64 @@ public class RandomUtilWithFaker {
             userState = getRandomState(),
             userCity = getRandomCity(userState);
 
-    public static String randomFirstName() {
-        return new Faker().name().firstName();
+    public String randomFirstName() {
+        return faker.name().firstName();
     }
 
-    public static String randomLastName() {
-        return new Faker().name().lastName();
+    public String randomLastName() {
+        return faker.name().lastName();
     }
 
-    public static String randomUserEmail() {
-        return new Faker().internet().emailAddress();
+    public String randomUserEmail() {
+        return new Faker(new Locale("en")).internet().emailAddress();
     }
 
-    public static String randomGender() {
+    public String randomGender() {
         String[] genders = {"Male", "Female", "Other"};
-        return new Faker().options().option(genders);
+        return faker.options().option(genders);
     }
 
-    public static int getRandomInt(int min, int max) {
-        return ThreadLocalRandom.current().nextInt(min, max + 1);
+    public String randomUserNumber() {
+        return faker.phoneNumber().subscriberNumber(10);
     }
 
-    public static String randomUserNumber() {
-        return new Faker().phoneNumber().subscriberNumber(10);
+    public int randomDate() {
+        return faker.number().numberBetween(11, 28);
     }
 
-    public static int randomDate() {
-        return new Faker().number().numberBetween(11, 28);
-    }
-
-    public static String randomMonth() {
+    public String randomMonth() {
         String[] month = {"January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"};
-        return new Faker().options().option(month);
+        return faker.options().option(month);
     }
 
-    public static int randomYear() {
-        return new Faker().number().numberBetween(1930, 2015);
+    public int randomYear() {
+        return faker.number().numberBetween(1930, 2015);
     }
 
-    public static String randomSubject() {
+    public String randomSubject() {
         String[] subjects = {"Accounting", "Arts", "Biology", "Chemistry", "Civics", "Economics",
                 "English", "Commerce", "Computer Science", "Physics", "Maths", "Hindi", "History", "Social Studies"};
-        return new Faker().options().option(subjects);
+        return faker.options().option(subjects);
 
     }
 
-    public static String randomHobby() {
+    public String randomHobby() {
         String[] hobbies = {"Sports", "Reading", "Music"};
-        return new Faker().options().option(hobbies);
+        return faker.options().option(hobbies);
     }
 
-    public static String randomAddress() {
-        return new Faker().address().streetAddress();
+    public String randomAddress() {
+        return faker.address().streetAddress();
     }
 
-    public static String getRandomState() {
+    public String getRandomState() {
 
         String[] state = {"NCR", "Uttar Pradesh", "Haryana", "Rajasthan"};
 
-        return new Faker().options().option(state);
+        return faker.options().option(state);
     }
 
-    public static String getRandomCity(String stateValue) {
+    public String getRandomCity(String stateValue) {
 
 
         switch (stateValue) {

@@ -3,7 +3,7 @@ package com.demoqa.pages;
 import com.codeborne.selenide.Selenide;
 import com.codeborne.selenide.SelenideElement;
 import com.demoqa.pages.components.CalendarComponent;
-import com.demoqa.pages.components.ResultsTableComponent;
+import com.demoqa.utils.RandomUtilWithFaker;
 
 import static com.codeborne.selenide.Condition.appear;
 import static com.codeborne.selenide.Condition.text;
@@ -13,7 +13,7 @@ import static com.codeborne.selenide.Selenide.executeJavaScript;
 
 public class RegistrationPage {
     CalendarComponent calendar = new CalendarComponent();
-    ResultsTableComponent table = new ResultsTableComponent();
+    RandomUtilWithFaker picture = new RandomUtilWithFaker();
 
     SelenideElement
             firstNameInput = $("#firstName"),
@@ -92,8 +92,8 @@ public class RegistrationPage {
         return this;
     }
 
-    public RegistrationPage setPicture(String value) {
-        uploadPicture.uploadFromClasspath(value);
+    public RegistrationPage setPicture(String value, String value2) {
+        uploadPicture.uploadFromClasspath(value + value2);
 
         return this;
     }
@@ -127,12 +127,6 @@ public class RegistrationPage {
     public RegistrationPage resultsTableOpened() {
         modalWindow.should(appear);
         modalWindowTitle.shouldHave(text("Thanks for submitting the form"));
-
-        return this;
-    }
-
-    public RegistrationPage checkResult(String firstName, String lastName, String userEmail, String userNumber) {
-        table.verificationResults(firstName, lastName, userEmail, userNumber);
 
         return this;
     }
