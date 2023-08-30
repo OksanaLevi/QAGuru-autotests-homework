@@ -20,6 +20,7 @@ public class RandomUtilWithFaker {
             userBirthDay = Integer.toString(randomDate()),
             userBirthMonth = randomMonth(),
             userBirthYear = Integer.toString(randomYear()),
+            birthday = checkingBirthdayInTable(userBirthDay, userBirthMonth, userBirthYear),
             subject = randomSubject(),
             hobby = randomHobby(),
             userAddress = randomAddress(),
@@ -90,23 +91,27 @@ public class RandomUtilWithFaker {
 
             case "NCR" -> {
                 String[] city = {"Delhi", "Gurgaon", "Noida"};
-                return new Faker().options().option(city);
+                return faker.options().option(city);
             }
             case "Uttar Pradesh" -> {
                 String[] city = {"Agra", "Lucknow", "Merrut"};
-                return new Faker().options().option(city);
+                return faker.options().option(city);
             }
             case "Haryana" -> {
                 String[] city = {"Karnal", "Panipat"};
-                return new Faker().options().option(city);
+                return faker.options().option(city);
             }
             case "Rajasthan" -> {
                 String[] city = {"Jaipur", "Jaiselmer"};
-                return new Faker().options().option(city);
+                return faker.options().option(city);
             }
         }
 
         return null;
+    }
+    public String checkingBirthdayInTable(String userBirthDay, String userBirthMonth, String userBirthYear) {
+        String genders = userBirthDay + " " + userBirthMonth + "," + userBirthYear;
+        return genders;
     }
 
 }
