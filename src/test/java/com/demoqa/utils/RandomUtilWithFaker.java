@@ -109,6 +109,7 @@ public class RandomUtilWithFaker {
 
         return null;
     }
+
     public String checkingBirthdayInTable(String userBirthDay, String userBirthMonth, String userBirthYear) {
         String genders = userBirthDay + " " + userBirthMonth + "," + userBirthYear;
         return genders;

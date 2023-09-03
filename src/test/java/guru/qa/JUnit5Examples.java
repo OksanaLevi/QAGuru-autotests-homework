@@ -10,15 +10,15 @@ public class JUnit5Examples {
         //Configuration.browser = "chrome";
     }
 
+    @AfterAll
+    static void afterAll() {
+        System.out.println("afterAll");
+    }
+
     @BeforeEach
     void beforeEach() {
         // open("https://google.com");
         System.out.println(" beforeEach");
-    }
-
-    @AfterAll
-    static void afterAll() {
-        System.out.println("afterAll");
     }
 
     @AfterEach
