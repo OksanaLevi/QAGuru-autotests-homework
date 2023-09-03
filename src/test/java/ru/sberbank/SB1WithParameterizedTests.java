@@ -39,17 +39,17 @@ class SB1WithParameterizedTests {
     )
 
     @ParameterizedTest(name = "В блоке специальных привилегий содержится привилегия {0}")
-    void checkingForPrivileges (String privilegeHeader) {
+    void checkingForPrivileges(String privilegeHeader) {
         sb1Page.checkingForPrivileges(privilegeHeader);
     }
 
-            @CsvSource({
+    @CsvSource({
             "Ожидание рейса с комфортом  |   https://www.sberbank.ru/ru/person/sb1/priority",
             "Вклады с особыми условиями  |   https://www.sberbank.ru/ru/person/sb1/vklad"
-        })
+    })
 
     @ParameterizedTest(name = "При нажатии на блок {0} открывается страница {1}")
-    void checkRedirectToPageOnClick (String blockName, String urlNewPage) {
+    void checkRedirectToPageOnClick(String blockName, String urlNewPage) {
         sb1Page.redirectToPageOnClick(blockName, urlNewPage);
     }
 }
