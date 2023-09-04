@@ -19,6 +19,10 @@ class SB1WithParameterizedTests {
         Configuration.browserCapabilities = capabilities;
     }
 
+    static {
+        Configuration.pageLoadStrategy = "eager";
+    }
+
     SB1Page sb1Page = new SB1Page();
 
     @BeforeEach
@@ -43,13 +47,14 @@ class SB1WithParameterizedTests {
         sb1Page.checkingForPrivileges(privilegeHeader);
     }
 
-    @CsvSource({
-            "Ожидание рейса с комфортом  |   https://www.sberbank.ru/ru/person/sb1/priority",
-            "Вклады с особыми условиями  |   https://www.sberbank.ru/ru/person/sb1/vklad"
-    })
+    @CsvSource(value = {
+            "Как получить бонусы       |   Возвращайте бонусами от СберСпасибо до 10% в кафе",
+            "Как использовать бонусы   |   Получайте скидки до 99% у партнёров программы"
+    },
+            delimiter = '|')
 
-    @ParameterizedTest(name = "При нажатии на блок {0} открывается страница {1}")
-    void checkRedirectToPageOnClick(String blockName, String urlNewPage) {
-        sb1Page.redirectToPageOnClick(blockName, urlNewPage);
+    @ParameterizedTest(name = "В блоке {0} имеется текст {1} ...")
+    void checkRedirectToPageOnClick(String bonusAction, String bonusDetails) {
+        sb1Page.redirectToPageOnClick(bonusAction, bonusDetails);
     }
 }
