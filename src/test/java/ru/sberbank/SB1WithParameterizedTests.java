@@ -54,7 +54,7 @@ class SB1WithParameterizedTests {
             delimiter = '|')
 
     @ParameterizedTest(name = "В блоке {0} имеется текст {1} ...")
-    void checkRedirectToPageOnClick(String bonusAction, String bonusDetails) {
+    void checkingInformationAboutBonuses(String bonusAction, String bonusDetails) {
         sb1Page.redirectToPageOnClick(bonusAction, bonusDetails);
     }
 }
