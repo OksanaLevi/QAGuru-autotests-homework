@@ -1,5 +1,6 @@
-package ru.sberbank;
+package ru.sberbank.pages;
 
+import com.codeborne.selenide.Configuration;
 import com.codeborne.selenide.Selenide;
 import com.codeborne.selenide.SelenideElement;
 
@@ -17,6 +18,8 @@ public class SB1Page {
 
     public void openPage() {
         Selenide.open("https://www.sberbank.ru/ru/person/sb1");
+        Configuration.pageLoadStrategy = "eager";
+        Configuration.browserSize = "2880x1800";
     }
 
     public SB1Page pressTheMenuButton(String value) {
