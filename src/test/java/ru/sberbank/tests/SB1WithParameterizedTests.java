@@ -1,31 +1,18 @@
 package ru.sberbank.tests;
 
-import com.codeborne.selenide.Configuration;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvFileSource;
 import org.junit.jupiter.params.provider.CsvSource;
 import org.junit.jupiter.params.provider.ValueSource;
-import org.openqa.selenium.chrome.ChromeOptions;
-import org.openqa.selenium.remote.DesiredCapabilities;
 import ru.sberbank.pages.SB1Page;
 
-class SB1WithParameterizedTests {
-
-    static {
-        ChromeOptions options = new ChromeOptions();
-        options.setBinary("/Applications/Google Chrome.app/Contents/MacOS/Google Chrome");
-        DesiredCapabilities capabilities = new DesiredCapabilities();
-        capabilities.setCapability(ChromeOptions.CAPABILITY, options);
-        Configuration.browserCapabilities = capabilities;
-    }
+class SB1WithParameterizedTests extends TestBase {
 
     SB1Page sb1Page = new SB1Page();
 
     @BeforeEach
-    void setUp() {
-        sb1Page.openPage();
-    }
+    void setUp() {sb1Page.openPage();}
 
     @CsvFileSource(resources = "/testData/displayBlockByButton.csv")
     @ParameterizedTest(name = "На странице СберПервого при нажатии на вкладку {0} отображается заголовок {1}")

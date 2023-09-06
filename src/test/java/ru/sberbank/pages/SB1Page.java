@@ -1,12 +1,11 @@
 package ru.sberbank.pages;
 
-import com.codeborne.selenide.Configuration;
-import com.codeborne.selenide.Selenide;
 import com.codeborne.selenide.SelenideElement;
 
 import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.$;
+import static com.codeborne.selenide.Selenide.open;
 
 public class SB1Page {
     SelenideElement
@@ -14,12 +13,12 @@ public class SB1Page {
             pageContent = $(".tabs-container__tab-content"),
             privilegeHeader = $(".sb-include"),
             informationAboutBonuses = $(".bli-widget");
+    String
+            urlForClientsSB1 = "/sb1";
 
 
     public void openPage() {
-        Selenide.open("https://www.sberbank.ru/ru/person/sb1");
-        Configuration.pageLoadStrategy = "eager";
-        Configuration.browserSize = "2880x1800";
+        open(urlForClientsSB1);
     }
 
     public SB1Page pressTheMenuButton(String value) {
