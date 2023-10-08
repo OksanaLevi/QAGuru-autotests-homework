@@ -1,0 +1,12 @@
+{
+  "id": 112,
+  "name": "Olya",
+  "married": true,
+  "age": 32,
+  "job": {
+    "role": "Manager",
+    "city": "Moscow",
+    "salaryUsd": 78990
+  }
+  
+}

@@ -19,7 +19,9 @@ dependencies {
             'com.opencsv:opencsv:5.7.1',
             'com.codeborne:pdf-test:1.8.1',
             'com.codeborne:xls-test:1.7.0',
-            'org.assertj:assertj-core:3.24.2'
+            'org.assertj:assertj-core:3.24.2',
+            'com.fasterxml.jackson.core:2.13.1',
+            'com.fasterxml.jackson.core:jackson-databind:2.13.1'
     )
 }
 
