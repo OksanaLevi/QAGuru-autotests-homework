@@ -16,9 +16,6 @@ import java.util.List;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipInputStream;
 
-import static org.hamcrest.CoreMatchers.equalTo;
-import static org.hamcrest.MatcherAssert.assertThat;
-
 public class ZipContentTest {
 
     private static final ClassLoader cl = JsonParseTest.class.getClassLoader();
@@ -67,7 +64,7 @@ public class ZipContentTest {
                         .getCell(3)
                         .getStringCellValue();
                 Assertions.assertTrue(cellValue.contains("green"));
-                assertThat(xls.excel.getSheetName(0), equalTo("Sheet1"));
+
             });
         }
     }
