@@ -1,16 +1,17 @@
-package guru.qa;
+package guru.qa.tests;
 
+import com.codeborne.selenide.Condition;
+import com.codeborne.selenide.DragAndDropOptions;
+import com.codeborne.selenide.Selenide;
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.remote.DesiredCapabilities;
 
-import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Configuration.browserCapabilities;
 import static com.codeborne.selenide.Selenide.$;
-import static com.codeborne.selenide.Selenide.open;
+import static com.codeborne.selenide.Selenide.sleep;
 
-public class GoogleTests {
-
+public class DragDropTest {
     static {
         ChromeOptions options = new ChromeOptions();
         options.setBinary("/Applications/Google Chrome.app/Contents/MacOS/Google Chrome");
@@ -20,9 +21,11 @@ public class GoogleTests {
     }
 
     @Test
-    void googleTest() {
-        open("https://www.google.com/");
-        $("[name=q]").setValue("selenide").pressEnter();
-        $("[id=search]").shouldHave(text("https://ru.selenide.org"));
+    void swapRectangles() {
+        Selenide.open("https://the-internet.herokuapp.com/drag_and_drop");
+        $("#column-a").dragAndDrop(DragAndDropOptions.to($(("#column-b"))));
+        $("#column-a").shouldHave(Condition.text("B"));
+        sleep(5000);
+
     }
 }
