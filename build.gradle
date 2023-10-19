@@ -6,15 +6,17 @@ plugins {
 group 'guru.qa'
 version '1.0'
 
+def allureVersion = "2.24.0"
+
 allure {
     report {
-        version.set("2.24.0")
+        version.set(allureVersion)
     }
     adapter { // отвечает за появление папочки build/allure-results
         aspectjWeaver.set(true) //обработка аннотации @Step
         frameworks {
             junit5 { //название фреймворка
-                adapterVersion.set("2.24.0") //версия интеграции фреймворка и Allure
+                adapterVersion.set(allureVersion) //версия интеграции фреймворка и Allure
             }
         }
     }
@@ -44,4 +46,10 @@ dependencies {
 test {
     systemProperties(System.getProperties())
     useJUnitPlatform()
+}
+
+task simple_test(type: Test) {
+    useJUnitPlatform{
+        includeTags("simple")
+    }
 }
