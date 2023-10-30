@@ -9,10 +9,8 @@ import java.util.Map;
 public class RemoteTestBase {
     @BeforeAll
     static void beforeAll() {
-        Configuration.pageLoadStrategy = "eager";
         Configuration.baseUrl = "https://demoqa.com";
-//        Configuration.browserSize = "2880x1800";
-//        Configuration.holdBrowserOpen = true;
+        Configuration.browserSize = "1920x1080";
 
         Configuration.remote = "https://user1:1234@selenoid.autotests.cloud/wd/hub";
 
