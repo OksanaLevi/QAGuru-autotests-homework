@@ -13,7 +13,7 @@ import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.executeJavaScript;
 
-class RegistrationRemoteTests extends TestBase {
+class RegistrationRemoteTests extends RemoteTestBase  {
 
     static {
         ChromeOptions options = new ChromeOptions();
@@ -31,7 +31,7 @@ class RegistrationRemoteTests extends TestBase {
         executeJavaScript("$('footer').remove()");
         executeJavaScript("$('#fixedban').remove()");
 
-        //Заполнение формы
+         //Заполнение формы
         $("#firstName").setValue("Student");
         $("#lastName").setValue("Testovi");
         $("#userEmail").setValue("studentt@ya.ru");
